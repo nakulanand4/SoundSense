@@ -1,0 +1,33 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="numpy" />
+          <option value="pandas" />
+          <option value="tqdm" />
+          <option value="PyYAML" />
+          <option value="librosa" />
+          <option value="soundfile" />
+          <option value="pydub" />
+          <option value="torch" />
+          <option value="torchaudio" />
+          <option value="transformers" />
+          <option value="accelerate" />
+          <option value="jiwer" />
+          <option value="pyctcdecode" />
+          <option value="kenlm" />
+          <option value="python-dotenv" />
+          <option value="loguru" />
+          <option value="evaluate" />
+          <option value="torchvision" />
+          <option value="black" />
+          <option value="isort" />
+          <option value="flake8" />
+          <option value="pytest" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

@@ -1,0 +1,10 @@
+# SoundSense — requirements.txt
+
+# ── Core ML stack ─────────────────────────────────────────────────────────────
+streamlit>=1.32.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+numpy>=1.24.0
+
+# ── API & HTTP requests ───────────────────────────────────────────────────────
+requests>=2.31.0

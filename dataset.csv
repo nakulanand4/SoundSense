@@ -1,0 +1,223 @@
+song,artist,genre,mood,language,energy,danceability,valence,tempo_bpm,popularity
+Shape of You,Ed Sheeran,Pop,Happy,English,0.65,0.83,0.93,96,95
+Blinding Lights,The Weeknd,Pop,Energetic,English,0.73,0.51,0.33,171,98
+Levitating,Dua Lipa,Pop,Happy,English,0.7,0.7,0.76,103,92
+Watermelon Sugar,Harry Styles,Pop,Happy,English,0.55,0.76,0.75,95,90
+As It Was,Harry Styles,Pop,Melancholic,English,0.73,0.52,0.54,124,94
+Flowers,Miley Cyrus,Pop,Happy,English,0.67,0.75,0.97,118,91
+Bad Guy,Billie Eilish,Pop,Dark,English,0.82,0.7,0.56,135,93
+Stay,Justin Bieber,Pop,Romantic,English,0.58,0.75,0.45,170,88
+Peaches,Justin Bieber,Pop,Happy,English,0.68,0.57,0.69,90,87
+Save Your Tears,The Weeknd,Pop,Sad,English,0.66,0.59,0.36,118,89
+Positions,Ariana Grande,Pop,Romantic,English,0.68,0.74,0.42,144,86
+drivers license,Olivia Rodrigo,Pop,Sad,English,0.43,0.46,0.13,76,88
+good 4 u,Olivia Rodrigo,Pop Rock,Energetic,English,0.89,0.56,0.68,166,87
+Heat Waves,Glass Animals,Indie Pop,Melancholic,English,0.53,0.54,0.37,81,91
+Unholy,Sam Smith,Pop,Dark,English,0.7,0.74,0.41,130,85
+Anti-Hero,Taylor Swift,Pop,Melancholic,English,0.64,0.7,0.47,97,93
+Cruel Summer,Taylor Swift,Pop,Energetic,English,0.7,0.55,0.56,170,92
+Shake It Off,Taylor Swift,Pop,Happy,English,0.8,0.65,0.94,160,89
+Happier,Marshmello,Pop,Happy,English,0.75,0.65,0.82,100,84
+Memories,Maroon 5,Pop,Sad,English,0.52,0.54,0.52,91,86
+Bohemian Rhapsody,Queen,Rock,Dark,English,0.4,0.23,0.27,144,97
+Hotel California,Eagles,Rock,Dark,English,0.35,0.4,0.17,75,95
+Smells Like Teen Spirit,Nirvana,Rock,Energetic,English,0.92,0.47,0.49,117,96
+Come As You Are,Nirvana,Rock,Melancholic,English,0.6,0.45,0.29,120,88
+Sweet Child O Mine,Guns N Roses,Rock,Energetic,English,0.65,0.43,0.44,122,95
+November Rain,Guns N Roses,Rock,Sad,English,0.35,0.26,0.22,74,90
+Stairway to Heaven,Led Zeppelin,Rock,Melancholic,English,0.35,0.3,0.19,82,94
+Enter Sandman,Metallica,Rock,Dark,English,0.78,0.38,0.17,123,91
+Master of Puppets,Metallica,Rock,Dark,English,0.82,0.36,0.13,212,89
+Back In Black,AC DC,Rock,Energetic,English,0.72,0.46,0.53,92,92
+Believer,Imagine Dragons,Rock,Motivational,English,0.77,0.55,0.46,125,91
+Thunder,Imagine Dragons,Rock,Energetic,English,0.78,0.61,0.53,168,87
+Natural,Imagine Dragons,Rock,Motivational,English,0.68,0.47,0.37,100,85
+Radioactive,Imagine Dragons,Rock,Dark,English,0.56,0.46,0.35,136,90
+Enemy,Imagine Dragons,Rock,Dark,English,0.74,0.57,0.46,152,88
+Mr Brightside,The Killers,Rock,Energetic,English,0.8,0.46,0.55,148,93
+Somebody That I Used to Know,Gotye,Indie Rock,Sad,English,0.53,0.59,0.27,129,89
+Little Lion Man,Mumford and Sons,Folk Rock,Energetic,English,0.72,0.49,0.47,155,85
+Dog Days Are Over,Florence and The Machine,Indie Rock,Happy,English,0.8,0.48,0.66,170,84
+Pumped Up Kicks,Foster the People,Indie Pop,Dark,English,0.58,0.71,0.72,128,87
+God's Plan,Drake,Hip Hop,Motivational,English,0.65,0.75,0.42,77,94
+HUMBLE,Kendrick Lamar,Hip Hop,Dark,English,0.6,0.77,0.42,150,92
+Money Trees,Kendrick Lamar,Hip Hop,Melancholic,English,0.44,0.79,0.3,79,88
+Sicko Mode,Travis Scott,Hip Hop,Dark,English,0.73,0.78,0.29,155,91
+Sunflower,Post Malone,Hip Hop,Happy,English,0.48,0.76,0.91,164,95
+Rockstar,Post Malone,Hip Hop,Dark,English,0.6,0.66,0.22,160,89
+Industry Baby,Lil Nas X,Hip Hop,Energetic,English,0.75,0.76,0.59,149,87
+Montero,Lil Nas X,Pop,Dark,English,0.7,0.71,0.39,150,86
+3 Nights,Dominic Fike,R&B,Romantic,English,0.51,0.75,0.61,88,83
+Essence,Wizkid,Afrobeats,Romantic,English,0.65,0.72,0.68,111,85
+Thinking Out Loud,Ed Sheeran,R&B,Romantic,English,0.38,0.6,0.63,79,91
+Perfect,Ed Sheeran,Pop,Romantic,English,0.35,0.45,0.52,95,93
+All of Me,John Legend,R&B,Romantic,English,0.33,0.37,0.54,63,92
+XO,Beyonce,R&B,Romantic,English,0.52,0.72,0.66,102,84
+Love On Top,Beyonce,R&B,Happy,English,0.8,0.63,0.89,185,86
+Levels,Avicii,Electronic,Energetic,English,0.72,0.67,0.71,126,92
+Wake Me Up,Avicii,Electronic,Motivational,English,0.69,0.58,0.63,124,91
+One More Time,Daft Punk,Electronic,Happy,English,0.78,0.68,0.82,123,90
+Get Lucky,Daft Punk,Electronic,Happy,English,0.65,0.76,0.8,116,88
+Harder Better Faster,Daft Punk,Electronic,Energetic,English,0.85,0.74,0.66,123,85
+Digital Love,Daft Punk,Electronic,Romantic,English,0.71,0.74,0.73,124,84
+Clarity,Zedd,Electronic,Energetic,English,0.78,0.62,0.53,128,83
+Titanium,David Guetta,Electronic,Motivational,English,0.72,0.58,0.37,126,88
+Animals,Martin Garrix,Electronic,Energetic,English,0.87,0.55,0.43,128,84
+Lean On,Major Lazer,Electronic,Energetic,English,0.72,0.58,0.73,98,87
+Someone Like You,Adele,Pop,Sad,English,0.22,0.24,0.08,68,96
+Hello,Adele,Pop,Sad,English,0.32,0.31,0.06,79,95
+Rolling in the Deep,Adele,Soul,Energetic,English,0.61,0.48,0.49,105,94
+Fix You,Coldplay,Rock,Sad,English,0.3,0.41,0.2,70,93
+The Scientist,Coldplay,Rock,Sad,English,0.25,0.42,0.17,75,91
+Yellow,Coldplay,Rock,Romantic,English,0.45,0.48,0.45,89,90
+Skinny Love,Bon Iver,Indie Folk,Sad,English,0.25,0.45,0.14,96,83
+Holocene,Bon Iver,Indie Folk,Melancholic,English,0.2,0.38,0.19,88,82
+How to Save a Life,The Fray,Rock,Sad,English,0.35,0.48,0.26,120,85
+Let Her Go,Passenger,Folk Pop,Sad,English,0.32,0.52,0.19,75,88
+Say Something,A Great Big World,Pop,Sad,English,0.22,0.28,0.08,74,84
+The Night Will Always Win,Manchester Orchestra,Indie Rock,Sad,English,0.4,0.38,0.12,80,75
+Motion Picture Soundtrack,Radiohead,Alternative,Sad,English,0.18,0.29,0.06,72,80
+Creep,Radiohead,Alternative,Melancholic,English,0.45,0.42,0.1,92,89
+Breathe Me,Sia,Indie Pop,Sad,English,0.19,0.35,0.12,65,82
+Tum Hi Ho,Arijit Singh,Bollywood Pop,Romantic,Hindi,0.3,0.4,0.55,72,97
+Kesariya,Arijit Singh,Bollywood Pop,Romantic,Hindi,0.45,0.5,0.6,90,96
+Ae Dil Hai Mushkil,Arijit Singh,Bollywood Pop,Sad,Hindi,0.35,0.42,0.35,80,93
+Agar Tum Saath Ho,Arijit Singh,Bollywood Pop,Sad,Hindi,0.28,0.38,0.22,68,92
+Channa Mereya,Arijit Singh,Bollywood Pop,Sad,Hindi,0.32,0.44,0.28,76,94
+Tujhe Kitna Chahne Lage,Arijit Singh,Bollywood Pop,Romantic,Hindi,0.33,0.43,0.52,78,91
+Khairiyat,Arijit Singh,Bollywood Pop,Sad,Hindi,0.3,0.41,0.3,75,90
+Raataan Lambiyan,Jubin Nautiyal,Bollywood Pop,Romantic,Hindi,0.38,0.48,0.58,88,89
+Pehle Bhi Main,Vishal Mishra,Bollywood Pop,Romantic,Hindi,0.35,0.45,0.55,82,88
+Hawayein,Arijit Singh,Bollywood Pop,Romantic,Hindi,0.28,0.38,0.52,70,91
+Kal Ho Naa Ho,Sonu Nigam,Bollywood Pop,Sad,Hindi,0.3,0.42,0.35,74,92
+Tere Bina,AR Rahman,Bollywood,Sad,Hindi,0.25,0.36,0.25,66,85
+Janam Janam,Arijit Singh,Bollywood Pop,Romantic,Hindi,0.33,0.43,0.55,80,88
+Gerua,Arijit Singh,Bollywood Pop,Romantic,Hindi,0.38,0.48,0.6,85,87
+Phir Le Aya Dil,Arijit Singh,Bollywood Pop,Sad,Hindi,0.27,0.37,0.28,68,83
+Tera Ban Jaunga,Akhil Sachdeva,Bollywood Pop,Romantic,Hindi,0.35,0.45,0.55,82,86
+Mere Naam Tu,Abhay Jodhpurkar,Bollywood Pop,Romantic,Hindi,0.32,0.42,0.52,76,82
+Lut Gaye,Jubin Nautiyal,Bollywood Pop,Romantic,Hindi,0.4,0.5,0.6,90,87
+O Bedardeya,Arijit Singh,Bollywood Pop,Sad,Hindi,0.28,0.38,0.25,70,84
+Tumse Milke,Shankar Ehsaan Loy,Bollywood Pop,Romantic,Hindi,0.35,0.45,0.58,84,83
+Naatu Naatu,MM Keeravaani,Bollywood,Energetic,Hindi,0.9,0.82,0.88,174,96
+Jhoome Jo Pathaan,Vishal Sheykhar,Bollywood Pop,Energetic,Hindi,0.85,0.78,0.85,168,92
+Butta Bomma,Armaan Malik,Bollywood Pop,Happy,Hindi,0.72,0.7,0.82,128,88
+Kar Gayi Chull,Badshah,Bollywood Pop,Energetic,Hindi,0.88,0.8,0.85,172,87
+Gallan Goodiyaan,Shankar Ehsaan Loy,Bollywood,Happy,Hindi,0.82,0.76,0.88,160,85
+London Thumakda,Labh Janjua,Bollywood,Happy,Hindi,0.85,0.78,0.9,168,86
+Dil Dhadakne Do,Priyanka Chopra,Bollywood Pop,Happy,Hindi,0.78,0.72,0.85,154,82
+Badtameez Dil,Shalmali Kholgade,Bollywood Pop,Energetic,Hindi,0.83,0.77,0.82,164,84
+Ghungroo,Arijit Singh,Bollywood Pop,Energetic,Hindi,0.8,0.74,0.78,158,86
+Senorita,Shilpa Rao,Bollywood Pop,Happy,Hindi,0.75,0.7,0.82,148,83
+Zinda,Siddharth Mahadevan,Bollywood Rock,Motivational,Hindi,0.82,0.62,0.68,152,83
+Sooraj Dooba Hai,Arijit Singh,Bollywood Pop,Romantic,Hindi,0.55,0.58,0.65,108,80
+Danka Bajega,Bollywood,Bollywood Pop,Energetic,Hindi,0.85,0.78,0.8,168,78
+Proper Patola,Diljit Dosanjh,Punjabi Pop,Energetic,Hindi,0.87,0.8,0.85,170,82
+Lehnga,Jass Manak,Punjabi Pop,Happy,Hindi,0.78,0.74,0.88,152,84
+Kar Har Maidaan Fateh,Sukhwinder Singh,Bollywood,Motivational,Hindi,0.8,0.62,0.75,148,89
+Jai Ho,AR Rahman,Bollywood,Motivational,Hindi,0.82,0.65,0.78,152,88
+Swag Se Swagat,Vishal Sheykhar,Bollywood Pop,Motivational,Hindi,0.85,0.72,0.8,162,85
+Sultan,Sukhwinder Singh,Bollywood Rock,Motivational,Hindi,0.78,0.6,0.7,148,83
+Dangal,Pritam,Bollywood Rock,Motivational,Hindi,0.8,0.62,0.72,152,86
+Bharat,Vishal Sheykhar,Bollywood,Motivational,Hindi,0.75,0.6,0.68,144,80
+Aashiqui 2 Title Track,Arijit Singh,Bollywood Pop,Romantic,Hindi,0.35,0.43,0.45,78,87
+Phir Bhi Tumko Chahungi,Shreya Ghoshal,Bollywood Pop,Sad,Hindi,0.28,0.38,0.28,68,84
+Malhari,Vishal Sheykhar,Bollywood Rock,Dark,Hindi,0.88,0.72,0.55,172,87
+Deva Shree Ganesha,Ajay Atul,Bollywood,Energetic,Hindi,0.85,0.68,0.6,165,84
+Bulleya,Amit Trivedi,Bollywood,Dark,Hindi,0.55,0.52,0.4,104,82
+Bhaag DK Bose,Ram Sampath,Bollywood Rock,Dark,Hindi,0.82,0.68,0.42,158,80
+Sadda Haq,Mohit Chauhan,Rock,Dark,Hindi,0.78,0.55,0.35,148,82
+Tum Tak,Javed Ali,Bollywood,Sad,Hindi,0.3,0.4,0.3,72,80
+Kun Faya Kun,AR Rahman,Sufi,Calm,Hindi,0.28,0.38,0.52,72,92
+Dastaan-E-Om Shanti Om,Shreya Ghoshal,Bollywood,Romantic,Hindi,0.32,0.42,0.55,76,83
+Safarnama,Lucky Ali,Indie,Calm,Hindi,0.25,0.35,0.48,68,82
+Ik Vaari Aa,Arijit Singh,Bollywood Pop,Sad,Hindi,0.3,0.4,0.3,74,85
+Tere Sang Yaara,Atif Aslam,Bollywood Pop,Romantic,Hindi,0.38,0.48,0.58,86,83
+Main Rang Sharbaton Ka,Atif Aslam,Bollywood Pop,Romantic,Hindi,0.35,0.45,0.55,82,82
+Piya O Re Piya,Atif Aslam,Bollywood Pop,Romantic,Hindi,0.33,0.43,0.52,78,80
+Woh Lamhe,Atif Aslam,Bollywood Pop,Sad,Hindi,0.28,0.38,0.28,68,83
+Tera Hone Laga Hoon,Atif Aslam,Bollywood Pop,Romantic,Hindi,0.38,0.48,0.58,86,81
+Tu Jaane Na,Atif Aslam,Bollywood Pop,Sad,Hindi,0.3,0.4,0.28,72,84
+Counting Stars,OneRepublic,Pop Rock,Motivational,English,0.72,0.66,0.6,122,88
+Apologize,OneRepublic,Pop,Sad,English,0.45,0.58,0.28,108,86
+Secrets,OneRepublic,Pop,Motivational,English,0.52,0.56,0.48,126,82
+Viva La Vida,Coldplay,Rock,Motivational,English,0.55,0.56,0.6,138,91
+Speed of Sound,Coldplay,Rock,Melancholic,English,0.45,0.46,0.38,110,82
+A Sky Full of Stars,Coldplay,Electronic Pop,Happy,English,0.82,0.56,0.58,124,87
+Clocks,Coldplay,Rock,Melancholic,English,0.58,0.52,0.4,131,88
+In My Life,The Beatles,Rock,Melancholic,English,0.35,0.4,0.52,96,87
+Let It Be,The Beatles,Rock,Calm,English,0.28,0.38,0.52,72,90
+Hey Jude,The Beatles,Rock,Happy,English,0.38,0.42,0.68,74,92
+Wonderwall,Oasis,Rock,Melancholic,English,0.45,0.5,0.4,87,90
+Champagne Supernova,Oasis,Rock,Melancholic,English,0.38,0.42,0.32,85,83
+Lose Yourself,Eminem,Hip Hop,Motivational,English,0.68,0.58,0.41,171,94
+Rap God,Eminem,Hip Hop,Dark,English,0.72,0.62,0.35,155,88
+Without Me,Eminem,Hip Hop,Dark,English,0.78,0.68,0.38,130,85
+Numb,Linkin Park,Rock,Dark,English,0.65,0.44,0.22,108,90
+In The End,Linkin Park,Rock,Dark,English,0.62,0.48,0.28,106,92
+Somewhere I Belong,Linkin Park,Rock,Dark,English,0.7,0.46,0.25,112,85
+Faint,Linkin Park,Rock,Energetic,English,0.82,0.52,0.3,136,83
+New Divide,Linkin Park,Rock,Dark,English,0.68,0.48,0.25,140,81
+Demons,Imagine Dragons,Rock,Dark,English,0.5,0.46,0.33,89,88
+Whatever It Takes,Imagine Dragons,Rock,Motivational,English,0.72,0.54,0.44,192,84
+Birds,Imagine Dragons,Pop,Romantic,English,0.48,0.53,0.55,88,75
+Shotgun,George Ezra,Indie Pop,Happy,English,0.8,0.62,0.85,122,85
+Budapest,George Ezra,Indie Pop,Happy,English,0.6,0.58,0.75,114,83
+Take Me to Church,Hozier,Soul,Dark,English,0.42,0.45,0.18,130,91
+Cherry Wine,Hozier,Folk,Sad,English,0.28,0.4,0.28,86,78
+From Eden,Hozier,Folk,Dark,English,0.38,0.48,0.32,92,77
+Unstoppable,Sia,Pop,Motivational,English,0.65,0.55,0.68,74,86
+Chandelier,Sia,Pop,Sad,English,0.52,0.48,0.35,124,88
+Elastic Heart,Sia,Pop,Dark,English,0.58,0.52,0.38,130,82
+Cheap Thrills,Sia,Pop,Happy,English,0.68,0.72,0.74,97,87
+Alive,Sia,Pop,Motivational,English,0.62,0.52,0.52,120,80
+Hall of Fame,The Script,Pop,Motivational,English,0.72,0.58,0.7,100,86
+The Man Who Can't Be Moved,The Script,Pop,Sad,English,0.42,0.5,0.28,92,82
+Superheroes,The Script,Pop,Motivational,English,0.68,0.6,0.65,105,80
+Photograph,Ed Sheeran,Pop,Sad,English,0.4,0.52,0.4,108,90
+Castle on the Hill,Ed Sheeran,Pop Rock,Motivational,English,0.78,0.55,0.65,135,87
+Galway Girl,Ed Sheeran,Folk Pop,Happy,English,0.82,0.68,0.82,170,85
+Happier,Ed Sheeran,Pop,Sad,English,0.45,0.52,0.4,90,83
+Dilbaro,Shankar Ehsaan Loy,Bollywood,Sad,Hindi,0.28,0.38,0.25,68,82
+Dil Diyan Gallan,Atif Aslam,Bollywood Pop,Romantic,Hindi,0.38,0.48,0.58,86,85
+Bekhayali,Sachet Tandon,Bollywood Rock,Sad,Hindi,0.55,0.5,0.25,108,88
+Kabir,Shankar Ehsaan Loy,Bollywood,Motivational,Hindi,0.65,0.55,0.55,120,79
+Dooba Dooba,Silk Route,Indie Rock,Sad,Hindi,0.45,0.48,0.28,96,78
+Iktara,Amit Trivedi,Indie Folk,Calm,Hindi,0.25,0.38,0.52,68,83
+Mast Magan,Arijit Singh,Bollywood Pop,Romantic,Hindi,0.52,0.55,0.65,102,82
+Qaafirana,Arijit Singh,Bollywood,Romantic,Hindi,0.3,0.4,0.52,72,83
+Taare Gin,Armaan Malik,Bollywood Pop,Romantic,Hindi,0.38,0.48,0.58,86,80
+Pachtaoge,Arijit Singh,Bollywood Pop,Sad,Hindi,0.4,0.48,0.3,88,86
+Mere Sohneya,Sachet Tandon,Bollywood Pop,Romantic,Hindi,0.42,0.5,0.58,90,82
+Zindagi Na Milegi Dobara,Shankar Ehsaan Loy,Bollywood Rock,Motivational,Hindi,0.78,0.62,0.7,148,86
+Senorita ZNM,Shail Hada,Bollywood Pop,Happy,Hindi,0.72,0.65,0.8,138,78
+Ik Junoon,Shankar Ehsaan Loy,Bollywood Rock,Energetic,Hindi,0.8,0.65,0.7,152,80
+Nachan Farrate,Yo Yo Honey Singh,Bollywood Pop,Energetic,Hindi,0.87,0.8,0.85,170,82
+Breakup Song,Nooran Sisters,Bollywood Pop,Energetic,Hindi,0.82,0.75,0.8,160,81
+Dil Hai Hindustani,AR Rahman,Bollywood,Motivational,Hindi,0.78,0.65,0.75,148,80
+Chak De India,Sukhwinder Singh,Bollywood,Motivational,Hindi,0.82,0.65,0.78,155,85
+Phir Mohabbat,Arijit Singh,Bollywood Pop,Sad,Hindi,0.3,0.4,0.28,72,82
+Chahun Main Ya Na,Arijit Singh,Bollywood Pop,Sad,Hindi,0.28,0.38,0.25,68,83
+Saware,Arijit Singh,Bollywood Pop,Sad,Hindi,0.27,0.37,0.22,66,80
+Main Dhoondne Ko Zamaane Mein,Arijit Singh,Bollywood Pop,Sad,Hindi,0.28,0.38,0.25,68,81
+Gone Gone Gone,Phillip Phillips,Indie Pop,Romantic,English,0.73,0.61,0.55,118,82
+Good Luck Charm,Aman Hayer,Punjabi Pop,Energetic,Hindi,0.85,0.82,0.78,105,75
+Ajab Si,KK,Bollywood Pop,Romantic,Hindi,0.55,0.60,0.65,115,85
+Love Story,Taylor Swift,Pop,Romantic,English,0.74,0.62,0.30,119,90
+You Belong With Me,Taylor Swift,Pop,Energetic,English,0.83,0.69,0.47,130,90
+Mine,Taylor Swift,Pop,Romantic,English,0.71,0.65,0.69,121,80
+All Too Well (10 Minute Version),Taylor Swift,Pop,Melancholic,English,0.63,0.63,0.20,93,95
+I Knew You Were Trouble,Taylor Swift,Pop,Energetic,English,0.67,0.62,0.68,77,85
+Blank Space,Taylor Swift,Pop,Energetic,English,0.70,0.76,0.58,96,95
+Shake It Off,Taylor Swift,Pop,Happy,English,0.80,0.65,0.94,160,96
+Style,Taylor Swift,Pop,Romantic,English,0.79,0.59,0.48,95,94
+Look What You Made Me Do,Taylor Swift,Pop,Dark,English,0.71,0.77,0.51,128,88
+Delicate,Taylor Swift,Pop,Romantic,English,0.40,0.75,0.05,95,90
+Cruel Summer,Taylor Swift,Pop,Energetic,English,0.70,0.55,0.56,170,98
+Lover,Taylor Swift,Pop,Romantic,English,0.54,0.36,0.45,69,93
+cardigan,Taylor Swift,Indie Pop,Melancholic,English,0.58,0.61,0.55,130,91
+august,Taylor Swift,Indie Pop,Melancholic,English,0.62,0.53,0.40,90,94
+willow,Taylor Swift,Folk,Calm,English,0.55,0.39,0.53,81,88
+Anti-Hero,Taylor Swift,Pop,Melancholic,English,0.64,0.64,0.53,97,95
+Karma,Taylor Swift,Pop,Happy,English,0.62,0.64,0.70,90,94
+Fortnight,Taylor Swift,Pop,Melancholic,English,0.38,0.50,0.28,96,96
