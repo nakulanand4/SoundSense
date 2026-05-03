@@ -1,20 +1,49 @@
 """
 SoundSense - Music Recommendation System
-Nakul Anand | VIPS-TC | 2025
+Nakul Anand | 2026
 """
 
 import streamlit as st
 import pandas as pd
+from streamlit_google_auth import Authenticate
 from recommender import get_recommendations, get_by_mood
 from ollama_search import search_by_query
 from music_player import get_youtube_embed_url, render_player
+import requests
+import firebase_admin
+from firebase_admin import credentials, firestore
 
+if not firebase_admin._apps:
+    cred = credentials.Certificate({
+        "type": st.secrets["firebase"]["type"],
+        "project_id": st.secrets["firebase"]["project_id"],
+        "private_key_id": st.secrets["firebase"]["private_key_id"],
+        "private_key": st.secrets["firebase"]["private_key"],
+        "client_email": st.secrets["firebase"]["client_email"],
+        "client_id": st.secrets["firebase"]["client_id"],
+        "auth_uri": st.secrets["firebase"]["auth_uri"],
+        "token_uri": st.secrets["firebase"]["token_uri"],
+        "auth_provider_x509_cert_url": st.secrets["firebase"]["auth_provider_x509_cert_url"],
+        "client_x509_cert_url": st.secrets["firebase"]["client_x509_cert_url"]
+    })
+    firebase_admin.initialize_app(cred)
+
+# Create a variable to talk to the database
+db = firestore.client()
 
 st.set_page_config(
     page_title="SoundSense",
     page_icon="🎵",
     layout="wide",
     initial_sidebar_state="expanded",
+)
+
+# Google login
+authenticator = Authenticate(
+    secret_credentials_path='google_credentials.json',
+    cookie_name='soundsense_auth_cookie',
+    cookie_key='this_is_a_secret_key_for_encryption',
+    redirect_uri='http://localhost:8501',
 )
 
 # styles
@@ -198,6 +227,7 @@ defaults = {
     "disliked_songs": [],
     "ai_results": None,
     "ai_explanation": None,
+    "user_email": "user@test.com",
     "active_tab": "Recommend",
 }
 for k, v in defaults.items():
@@ -213,15 +243,33 @@ def play_song_callback(song, artist, genre, mood):
     st.session_state.player_genre = genre
     st.session_state.player_mood = mood
     st.session_state.embed_url = url
+
+    # Save to local session
     if song not in st.session_state.play_history:
         st.session_state.play_history.append(song)
 
+    # Save to Cloud Database!
+    if st.session_state.get("user_email"):
+        user_ref = db.collection("users").document(st.session_state["user_email"])
+        user_ref.set({
+            "play_history": firestore.ArrayUnion([song])
+        }, merge=True)  # merge=True ensures we don't accidentally delete their other data
+
 
 def like_song_callback(song):
+    # Save to local session
     if song not in st.session_state.liked_songs:
         st.session_state.liked_songs.append(song)
         if song not in st.session_state.play_history:
             st.session_state.play_history.append(song)
+
+    # Save to Cloud Database!
+    if st.session_state.get("user_email"):
+        user_ref = db.collection("users").document(st.session_state["user_email"])
+        user_ref.set({
+            "liked_songs": firestore.ArrayUnion([song]),
+            "play_history": firestore.ArrayUnion([song])
+        }, merge=True)
 
 
 def dislike_song_callback(song):
@@ -289,22 +337,71 @@ with st.sidebar:
     st.caption("Hybrid Music Recommender · BCA Final Year Project")
     st.divider()
 
-    if st.session_state.embed_url:
-        st.markdown(f"""
-        <div class="sidebar-np-card">
-            <div class="cd-icon">💿</div>
-            <div style="font-size: 0.75rem; color: #a78bfa; font-weight: 800; letter-spacing: 0.15em; margin-bottom: 8px;">NOW PLAYING</div>
-            <div style="font-size: 1.25rem; font-weight: 800; color: white; margin: 4px 0;">{st.session_state.player_song}</div>
-            <div style="font-size: 0.9rem; color: #cbd5e1; margin-bottom: 16px;">{st.session_state.player_artist}</div>
-            <span class="badge badge-genre">{st.session_state.player_genre}</span>
-        </div>
-        """, unsafe_allow_html=True)
+    # Custom email
+    st.markdown("<h3 style='font-size: 0.9rem; color: #94a3b8;'>ACCOUNT</h3>", unsafe_allow_html=True)
+
+
+    if not st.session_state.get('connected'):
+
+        auth_mode = st.radio("Mode", ["Login", "Sign Up"], horizontal=True, label_visibility="collapsed")
+
+        email = st.text_input("Email", placeholder="user@email.com")
+        password = st.text_input("Password", type="password", placeholder="••••••••")
+
+        if st.button(auth_mode, use_container_width=True):
+            if not email or not password:
+                st.warning("Please enter both email and password.")
+            else:
+                with st.spinner("Authenticating..."):
+                    api_key = st.secrets["FIREBASE_WEB_API_KEY"]
+
+                    if auth_mode == "Sign Up":
+                        endpoint = f"https://identitytoolkit.googleapis.com/v1/accounts:signUp?key={api_key}"
+                    else:
+                        endpoint = f"https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key={api_key}"
+
+                    # Send the data securely to Firebase
+                    payload = {"email": email, "password": password, "returnSecureToken": True}
+                    response = requests.post(endpoint, json=payload)
+                    data = response.json()
+
+                    if "error" in data:
+                        error_msg = data["error"]["message"]
+                        if error_msg == "EMAIL_EXISTS":
+                            st.error("Email already in use. Please log in.")
+                        elif error_msg == "INVALID_LOGIN_CREDENTIALS":
+                            st.error("Invalid email or password.")
+                        elif error_msg == "WEAK_PASSWORD : Password should be at least 6 characters":
+                            st.error("Password must be at least 6 characters.")
+                        else:
+                            st.error(f"Error: {error_msg}")
+
+                    # Success!
+                    else:
+                        st.session_state["connected"] = True
+                        st.session_state["user_email"] = data["email"]
+                        user_ref = db.collection("users").document(data["email"])
+                        doc = user_ref.get()
+
+                        if doc.exists:
+                            user_data = doc.to_dict()
+
+                            st.session_state.liked_songs = user_data.get("liked_songs", [])
+                            st.session_state.play_history = user_data.get("play_history", [])
+
+
+                        st.rerun()
+
+
     else:
-        st.markdown(
-            '<div style="text-align:center;color:#64748b;padding:30px 0;font-size:0.9rem;background:rgba(20,20,25,0.5);border-radius:16px;border:1px dashed #334155;">'
-            '<div style="font-size:2rem;margin-bottom:8px;">🎧</div>Select a track to start</div>',
-            unsafe_allow_html=True,
-        )
+
+        display_name = st.session_state['user_email'].split('@')[0].capitalize()
+        st.success(f"Welcome, {display_name}! 👋")
+
+        if st.button("Log out", use_container_width=True):
+            st.session_state["connected"] = False
+            st.session_state["user_email"] = None
+            st.rerun()
 
     st.divider()
 
@@ -315,7 +412,7 @@ with st.sidebar:
         st.button("Clear session", use_container_width=True, on_click=clear_session_callback)
         st.divider()
 
-    st.caption("Nakul Anand · VIPS-TC · 2025")
+    st.caption("Nakul Anand · 2026")
 
 
 # main page
@@ -325,7 +422,7 @@ st.markdown(
 
 df = load_data()
 
-# show now playing bar if something is playing
+# now playing bar
 if st.session_state.embed_url:
     st.markdown(f"""
     <div class="now-playing-bar">
