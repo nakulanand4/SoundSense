@@ -5,7 +5,6 @@ Nakul Anand | 2026
 
 import streamlit as st
 import pandas as pd
-from streamlit_google_auth import Authenticate
 from recommender import get_recommendations, get_by_mood
 from ollama_search import search_by_query
 from music_player import get_youtube_embed_url, render_player
@@ -36,14 +35,6 @@ st.set_page_config(
     page_icon="🎵",
     layout="wide",
     initial_sidebar_state="expanded",
-)
-
-# Google login
-authenticator = Authenticate(
-    secret_credentials_path='google_credentials.json',
-    cookie_name='soundsense_auth_cookie',
-    cookie_key='this_is_a_secret_key_for_encryption',
-    redirect_uri='http://localhost:8501',
 )
 
 # styles
