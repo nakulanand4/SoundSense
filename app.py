@@ -331,7 +331,6 @@ with st.sidebar:
     # Custom email
     st.markdown("<h3 style='font-size: 0.9rem; color: #94a3b8;'>ACCOUNT</h3>", unsafe_allow_html=True)
 
-
     if not st.session_state.get('connected'):
 
         auth_mode = st.radio("Mode", ["Login", "Sign Up"], horizontal=True, label_visibility="collapsed")
@@ -380,9 +379,7 @@ with st.sidebar:
                             st.session_state.liked_songs = user_data.get("liked_songs", [])
                             st.session_state.play_history = user_data.get("play_history", [])
 
-
                         st.rerun()
-
 
     else:
 
@@ -528,31 +525,31 @@ with tab1:
             st.info("Song not found in dataset.")
 
 with tab2:
-    st.markdown("")
-    moods = ["Happy", "Sad", "Romantic", "Energetic", "Dark", "Calm", "Melancholic", "Motivational"]
-    cols = st.columns(4)
-    mood_icons = {"Happy": "😊", "Sad": "😢", "Romantic": "❤️", "Energetic": "⚡",
-                  "Dark": "🌑", "Calm": "🌊", "Melancholic": "🌧️", "Motivational": "🔥"}
+    st.markdown("### 🎛️ The Mood Mixer")
+    st.write("Mix and match moods to generate a custom playlist.")
 
-    if "selected_mood" not in st.session_state:
-        st.session_state.selected_mood = None
+    ALL_MOODS = ["Happy", "Sad", "Romantic", "Energetic", "Dark", "Calm", "Melancholic", "Motivational"]
 
-    for i, mood in enumerate(moods):
-        with cols[i % 4]:
-            if st.button(
-                    f"{mood_icons[mood]} {mood}",
-                    key=f"mood_{mood}",
-                    use_container_width=True,
-            ):
-                st.session_state.selected_mood = mood
+    selected_moods = st.multiselect(
+        "Choose your vibes:",
+        options=ALL_MOODS,
+        default=["Energetic", "Dark"],
+        label_visibility="collapsed"
+    )
 
-    if st.session_state.selected_mood:
-        mood = st.session_state.selected_mood
-        st.markdown(f'<div class="section-header">{mood_icons[mood]} Top {mood} Songs</div>',
-                    unsafe_allow_html=True)
-        mood_songs = get_by_mood(mood, df, top_n=10)
-        for i, (_, rec) in enumerate(mood_songs.iterrows(), 1):
-            render_song_card(i, rec.to_dict(), show_score=False)
+    if not selected_moods:
+        st.warning("Please select at least one mood from the dropdown above!")
+    else:
+        filtered_df = df[df['mood'].isin(selected_moods)]
+
+        if filtered_df.empty:
+            st.info("No songs found for that exact combination.")
+        else:
+            final_playlist = filtered_df.sort_values(by='popularity', ascending=False).head(15)
+            st.markdown(f'<div class="section-header">Top {len(final_playlist)} Mixed Tracks</div>', unsafe_allow_html=True)
+
+            for i, (_, rec) in enumerate(final_playlist.iterrows(), 1):
+                render_song_card(f"M{i}", rec.to_dict(), show_score=False)
 
 with tab3:
     st.markdown("")
