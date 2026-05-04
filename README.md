@@ -1,8 +1,8 @@
 # 🎵 SoundSense — Intelligent Music Recommendation System
 
-> BCA Final Year Project | Nakul Anand | 2026
+> BCA Final Year Project | Nakul Anand | VIPS-TC | 2026
 
-SoundSense is a hybrid music recommendation web app built with Streamlit. It combines TF-IDF content-based filtering with session-aware collaborative signals and a local LLM (Ollama/Llama3) for natural language search — all wrapped in a dark, animated UI with an embedded YouTube player.
+SoundSense is a hybrid music recommendation web app built with Streamlit. It combines TF-IDF content-based filtering with session-aware collaborative signals and a local LLM (Ollama/Llama3) for natural language search — wrapped in a dark, animated UI with an embedded YouTube player, Firebase email authentication, and persistent user profiles.
 
 ## Live Demo
 
@@ -15,11 +15,12 @@ SoundSense is a hybrid music recommendation web app built with Streamlit. It com
 ## Features
 
 - **Content-Based Recommendations** — TF-IDF vectorization on artist, genre, mood, and language, combined with normalized audio features (energy, danceability, valence, tempo, popularity) using cosine similarity
-- **Hybrid Mode** — Once you play/like songs in a session, the engine builds a taste profile from your history and blends it (30%) with content scores (70%) for personalized results
+- **Hybrid Mode** — Once you play or like songs, the engine builds a taste profile from your history and blends it (30%) with content scores (70%) for personalized results
 - **Mood Discovery** — Browse curated top songs across 8 moods: Happy, Sad, Romantic, Energetic, Dark, Calm, Melancholic, Motivational
 - **Natural Language Search (Ask AI)** — Powered by a locally running Ollama model (Llama3). Type things like *"sad slow songs for a rainy night"* and it parses your intent into structured filters
-- **Embedded YouTube Player** — Finds and embeds the official audio for any song directly in the app
-- **Session Tracking** — Tracks plays, likes, and dislikes within a session; activates hybrid mode automatically
+- **Embedded YouTube Player** — Finds and embeds audio for any song directly in the app
+- **Email Authentication** — Sign up and log in with email and password via Firebase Auth
+- **Persistent User Profiles** — Play history and liked songs are saved to Firebase Firestore per user, so your taste profile carries over across sessions and devices
 
 ---
 
@@ -30,6 +31,8 @@ SoundSense is a hybrid music recommendation web app built with Streamlit. It com
 | Frontend / UI | Streamlit |
 | Recommendation Engine | scikit-learn (TF-IDF, cosine similarity, MinMaxScaler) |
 | NL Search | Ollama (Llama3, local) via REST API |
+| Auth | Firebase Authentication (email/password) |
+| Database | Firebase Firestore |
 | Data | pandas, numpy |
 | YouTube Player | requests + regex scraping |
 | Language | Python 3.11+ |
@@ -40,12 +43,14 @@ SoundSense is a hybrid music recommendation web app built with Streamlit. It com
 
 ```
 SoundSense/
-├── app.py               # Main Streamlit app — UI, layout, session state
-├── recommender.py       # Hybrid recommendation engine (TF-IDF + session scoring)
-├── ollama_search.py     # Natural language query parser using local Llama3
-├── music_player.py      # YouTube embed URL fetcher and player renderer
-├── dataset.csv          # Music dataset with audio features
-└── requirements.txt     # Python dependencies
+├── app.py                # Main Streamlit app — UI, layout, session state, auth
+├── recommender.py        # Hybrid recommendation engine (TF-IDF + session scoring)
+├── ollama_search.py      # Natural language query parser using local Llama3
+├── music_player.py       # YouTube embed URL fetcher and player renderer
+├── dataset.csv           # Music dataset with audio features
+├── requirements.txt      # Python dependencies
+└── .streamlit/
+    └── secrets.toml      # API keys and credentials (not committed to repo)
 ```
 
 ---
@@ -63,13 +68,13 @@ These are concatenated into a single matrix. When you pick a song, cosine simila
 
 ### Hybrid Session Scoring
 
-When you've played or liked songs in a session, the app builds a **taste profile** by averaging the feature vectors of those songs. This profile is then scored against the full dataset via cosine similarity. The final score is:
+When you've played or liked songs, the app builds a **taste profile** by averaging the feature vectors of those songs. This profile is scored against the full dataset via cosine similarity. The final score is:
 
 ```
 final_score = 0.7 × content_score + 0.3 × session_score
 ```
 
-If no session history exists, it falls back to pure content-based scoring.
+If no history exists, it falls back to pure content-based scoring.
 
 ### Natural Language Search (Ask AI)
 
@@ -80,6 +85,10 @@ The "Ask AI" tab sends your query to a locally running Ollama instance. A struct
 - Language match → +1.0
 - Energy proximity → +1.0
 - Popularity boost → +0.3
+
+### User Profiles (Firebase)
+
+When logged in, every play and like is written to Firestore under the user's email as a document ID. On next login, that history is pulled back into session state so the hybrid engine immediately has context to personalize from.
 
 ---
 
@@ -107,6 +116,7 @@ The "Ask AI" tab sends your query to a locally running Ollama instance. A struct
 ### Prerequisites
 
 - Python 3.11+
+- A Firebase project with Authentication (email/password) and Firestore enabled
 - [Ollama](https://ollama.com/) installed and running locally (only needed for the "Ask AI" tab)
 
 ### Steps
@@ -122,20 +132,54 @@ pip install -r requirements.txt
 # 3. Pull the Llama3 model (for Ask AI tab only)
 ollama pull llama3
 
-# 4. Run the app
+# 4. Add your secrets
+mkdir -p .streamlit
+touch .streamlit/secrets.toml
+# fill in secrets.toml (see format below)
+
+# 5. Run the app
 streamlit run app.py
 ```
 
 The app will open at `http://localhost:8501`.
 
+### secrets.toml format
+
+```toml
+FIREBASE_WEB_API_KEY = "your-firebase-web-api-key"
+
+[firebase]
+type = "service_account"
+project_id = "your-project-id"
+private_key_id = "..."
+private_key = "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+client_email = "..."
+client_id = "..."
+auth_uri = "https://accounts.google.com/o/oauth2/auth"
+token_uri = "https://oauth2.googleapis.com/token"
+auth_provider_x509_cert_url = "https://www.googleapis.com/oauth2/v1/certs"
+client_x509_cert_url = "..."
+```
+
+> `secrets.toml` is listed in `.gitignore` and never committed to the repo.
+
 ---
 
 ## Known Limitations
 
-- YouTube embed relies on scraping search results, so it can occasionally pick the wrong video for less popular songs
+- YouTube embed relies on scraping search results and can occasionally pick the wrong video for less popular songs
+- The Ask AI tab requires Ollama running locally — it won't work on the hosted demo
 - The Ask AI tab can be slow (5–15 seconds) depending on your machine's hardware
-- Session history resets on page refresh — no persistent user account system
 - Dataset is curated manually and limited in size
+
+---
+
+## Future Scope
+
+- **Gesture-Based Controls** — Use the webcam to detect hand gestures (via MediaPipe or OpenCV) for play/pause, skip, and volume control without touching the keyboard
+- **Local Music Playback** — Let users point the app at a local folder and stream their own music files directly, removing the YouTube dependency entirely
+- **Cloud AI for Ask AI tab** — Replace local Ollama with a cloud model so natural language search works on the hosted version too without any local setup
+- **Mobile App** — A Flutter or SwiftUI frontend backed by the same recommendation logic via a FastAPI backend
 
 ---
 
@@ -148,4 +192,5 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 ## Author
 
 **Nakul Anand**
+BCA Final Year | Vivekananda Institute of Professional Studies – Technical Campus (VIPS-TC)
 GitHub: [@nakulanand4](https://github.com/nakulanand4)
