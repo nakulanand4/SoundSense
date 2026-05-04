@@ -1,6 +1,6 @@
-# 🎵 SoundSense — Intelligent Music Recommendation System
+# SoundSense — Intelligent Music Recommendation System
 
-> BCA Final Year Project | Nakul Anand | VIPS-TC | 2026
+> Nakul Anand | 2026
 
 SoundSense is a hybrid music recommendation web app built with Streamlit. It combines TF-IDF content-based filtering with session-aware collaborative signals and a local LLM (Ollama/Llama3) for natural language search — wrapped in a dark, animated UI with an embedded YouTube player, Firebase email authentication, and persistent user profiles.
 
@@ -192,5 +192,4 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 ## Author
 
 **Nakul Anand**
-BCA Final Year | Vivekananda Institute of Professional Studies – Technical Campus (VIPS-TC)
 GitHub: [@nakulanand4](https://github.com/nakulanand4)
