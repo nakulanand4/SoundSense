@@ -267,6 +267,11 @@ def dislike_song_callback(song):
     if song not in st.session_state.disliked_songs:
         st.session_state.disliked_songs.append(song)
 
+    if st.session_state.get("user_email"):
+        user_ref = db.collection("users").document(st.session_state["user_email"])
+        user_ref.set({
+            "disliked_songs": firestore.ArrayUnion([song])
+        }, merge=True)
 
 def clear_session_callback():
     st.session_state.play_history = []
@@ -378,6 +383,7 @@ with st.sidebar:
 
                             st.session_state.liked_songs = user_data.get("liked_songs", [])
                             st.session_state.play_history = user_data.get("play_history", [])
+                            st.session_state.disliked_songs = user_data.get("disliked_songs", [])
 
                         st.rerun()
 
@@ -525,7 +531,7 @@ with tab1:
             st.info("Song not found in dataset.")
 
 with tab2:
-    st.markdown("### 🎛️ The Mood Mixer")
+    st.markdown("### The Mood Mixer")
     st.write("Mix and match moods to generate a custom playlist.")
 
     ALL_MOODS = ["Happy", "Sad", "Romantic", "Energetic", "Dark", "Calm", "Melancholic", "Motivational"]
